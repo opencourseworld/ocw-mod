@@ -4,6 +4,7 @@
 #include <string>
 #include "util/file_handle.hpp"
 
+#define JSON_USE_GLOBAL_UDLS 0
 #include "nlohmann/json.hpp"
 using json = nlohmann::json;
 
@@ -75,20 +76,18 @@ extern "C" void exl_main(void* x0, void* x1) {
     LOG("OCW: game version: %s", helpers::GetGameVersion());
     if (versionIndex == 0xffff'ffff)
     {
-      LOG("OCW: Incompatible game version!");
-      EXL_ABORT(0x420);
+      EXL_ABORT("OCW: Incompatible game version!");
       return;
     }
 
     LOG("OCW: reading sdcard://ocw-config.json");
-    
+
     /* Mount the SD card, this must succeeed. */
     R_ABORT_UNLESS(nn::fs::MountSdCardForDebug("sd"));
-    
+
     /* Do nothing if the token is missing. */
     if(!FileExists(s_ConfigPath)) {
-        LOG("OCW: sdcard://ocw-config.json file missing, abort..");
-        EXL_ABORT(0x420);
+        EXL_ABORT("OCW: sdcard://ocw-config.json file missing, abort..");
         return;
     }
 
@@ -96,8 +95,7 @@ extern "C" void exl_main(void* x0, void* x1) {
     util::FileHandle handle(s_ConfigPath, nn::fs::OpenMode_Read);
     auto fileSize = handle.GetSize();
     if(fileSize > s_MaxJsonSize) {
-        LOG("OCW: config abnormally large, abort...");
-        EXL_ABORT(0x420);
+        EXL_ABORT("OCW: config abnormally large, abort...");
         return;
     }
 
@@ -108,25 +106,21 @@ extern "C" void exl_main(void* x0, void* x1) {
     json ocw_config = json::parse(s_JsonBuffer.begin(), s_JsonBuffer.end());
 
     if (ocw_config.contains("domain") != true) {
-        LOG("OCW: domain missing, abort...");
-        EXL_ABORT(0x420);
+        EXL_ABORT("OCW: domain missing, abort...");
     }
     std::string _domainValue = ocw_config["domain"].get<std::string>();
     if (_domainValue.length() > s_MaxDomainPatchBufferSize) {
-        LOG("OCW: domain is too long, abort...");
-        EXL_ABORT(0x420);
+        EXL_ABORT("OCW: domain is too long, abort...");
         return;
     }
     std::copy(_domainValue.begin(), _domainValue.end(), s_DomainPatchBuffer.data());
 
     if (ocw_config.contains("token") != true) {
-        LOG("OCW: token missing, abort...");
-        EXL_ABORT(0x420);
+        EXL_ABORT("OCW: token missing, abort...");
     }
     std::string _tokenValue = ocw_config["token"].get<std::string>();
     if (_tokenValue.length() != s_TokenSize) {
-        LOG("OCW: token invalid length, abort...");
-        EXL_ABORT(0x420);
+        EXL_ABORT("OCW: token invalid length, abort...");
         return;
     }
     std::copy(_tokenValue.begin(), _tokenValue.end(), s_TokenPatchBuffer.data());
@@ -221,7 +215,7 @@ extern "C" void exl_main(void* x0, void* x1) {
       p.Seek(0x0002F538); // 3.0.3
     }
     p.WriteInst(inst::Nop());
-    
+
     /* Stub EnsureNetworkServiceAccountAvailable, returning always zero. */
     if (versionIndex == 1) {
       p.Seek(0x0060E7A4); // 3.0.2
