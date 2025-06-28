@@ -3,6 +3,8 @@
 #include <nn.hpp>
 #include <string>
 #include "util/file_handle.hpp"
+#include <filedevice/seadArchiveFileDevice.h>
+#include <resource/seadSharcArchiveRes.h>
 
 #define JSON_USE_GLOBAL_UDLS 0
 #include "nlohmann/json.hpp"
@@ -231,3 +233,16 @@ extern "C" NORETURN void exl_exception_entry() {
     /* Note: this is only applicable in the context of applets/sysmodules. */
     EXL_ABORT("Default exception handler called!");
 }
+
+struct LMSMessage;
+
+namespace sead {
+
+struct MessageSetBase {
+  virtual ~MessageSetBase();
+  bool initialize(void *, sead::Heap *);
+  LMSMessage *m_pLMSMessage;
+  int m_TextNum;
+};
+
+} // namespace sead

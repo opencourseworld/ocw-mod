@@ -19,8 +19,8 @@ PYTHON := python3
 NPDM_JSON := qlaunch.json
 
 # Additional C/C++ flags to use.
-C_FLAGS := 
-CXX_FLAGS := 
+C_FLAGS := -I$(CURDIR)/vendor/opensead/include -Wall -Werror -O3 -DNNSDK
+CXX_FLAGS := -I$(CURDIR)/vendor/opensead/include -Wno-invalid-offsetof
 
 # AsRtld settings
 #------------------------
