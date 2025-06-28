@@ -1,0 +1,3 @@
+[submodule "vendor/opensead"]
+	path = vendor/opensead
+	url = https://github.com/open-ead/sead
