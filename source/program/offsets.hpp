@@ -24,17 +24,36 @@ namespace exl::reloc {
         },
         { util::ModuleIndex::Main,
           0x482990,
-          "_ZNK3eui10MessageSet11findMessageEPKc"
+          "_ZN3eui10MessageSet11findMessageEPKc"
         },
         { util::ModuleIndex::Main,
           0x482A20,
-          "_ZNK3eui10MessageSet14tryFindMessageEPKc"
+          "_ZN3eui10MessageSet14tryFindMessageEPKc"
         },
         { util::ModuleIndex::Main,
           0xE7F130,
           "_ZN4Cstm9UIMgrCstm11initMessageEPN2Lp2UI10MessageMgrE"
         }
+    >,
 
+    UserTableType<VersionType::V3_0_2,
+    //    Module offset is relative to.     Offset within module.       Symbol name.
+        { util::ModuleIndex::Main,
+          0x482340,
+          "_ZN3eui10MessageMgr7Archive4loadEPN4sead4HeapEPvj"
+        },
+        { util::ModuleIndex::Main,
+          0x4829A0,
+          "_ZNK3eui10MessageSet11findMessageEPKc"
+        },
+        { util::ModuleIndex::Main,
+          0x482A30,
+          "_ZNK3eui10MessageSet14tryFindMessageEPKc"
+        },
+        { util::ModuleIndex::Main,
+          0xE7F140,
+          "_ZN4Cstm9UIMgrCstm11initMessageEPN2Lp2UI10MessageMgrE"
+        }
     >
 
         // In addition, you can specify multiple tables and select the correct one at runtime. This allows you to

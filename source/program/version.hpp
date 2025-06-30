@@ -1,6 +1,8 @@
 #pragma once
 
 #include <common.hpp>
+#include "binaryoffsethelper.hpp"
+#include "oe/oe_displayversion.hpp"
 
 namespace exl::util {
 
@@ -8,7 +10,7 @@ namespace exl::util {
     enum class UserVersion {
         DEFAULT,
         /* Members can be assigned any constant of your choosing. */
-        OTHER = 123,
+        V3_0_2 = 0xF302,
     };
 
     namespace impl {
@@ -18,7 +20,14 @@ namespace exl::util {
                 An example may be apply Murmur3 over the .text and .rodata of the main executable or calling nn::oe::GetDisplayVersion.
                 The former would have complications if other mods are in effect, and the latter may have issues with people doing safe downgrades on console.
             */
-            return UserVersion::DEFAULT;
+            nn::oe::DisplayVersion displayVersion;
+            nn::oe::GetDisplayVersion(&displayVersion);
+
+            if (strncmp(displayVersion.name, "3.0.2", 6) == 0) {
+                return UserVersion::V3_0_2;
+            } else {
+                return UserVersion::DEFAULT;
+            }
         }
     }
 }
