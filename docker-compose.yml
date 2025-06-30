@@ -1,0 +1,10 @@
+services:
+  build:
+    container_name: build
+    image: devkitpro/devkita64
+    command:
+      - ./exlaunch.sh
+      - build
+    volumes:
+      - .:/work
+    working_dir: /work
