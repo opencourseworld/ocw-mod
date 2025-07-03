@@ -30,6 +30,7 @@ struct MessageString {
 
 struct SharcArchive {
   struct FileReader {
+    ~FileReader();
     bool readNext();
     sead::ArchiveFileDevice m_ArchiveFileDevice;
     int m_Index;
@@ -42,6 +43,7 @@ struct SharcArchive {
 };
 
 struct MessageSet : sead::MessageSetBase {
+  MessageSet();
   virtual ~MessageSet();
   MessageString findMessage(char const *);
   MessageString tryFindMessage(char const *);
@@ -113,8 +115,6 @@ HOOK_DEFINE_TRAMPOLINE(EuiMessageSetFindMessage) {
   static eui::MessageString Callback(eui::MessageSet *pMessageSet,
                                      char const *pLabel) {
     if (s_pSourceMessageSet && pMessageSet == s_pSourceMessageSet) {
-      pMessageSet = s_pSourceMessageSet;
-    } else if (s_pDestinationMessageSet && pMessageSet == s_pDestinationMessageSet) {
       pMessageSet = s_pDestinationMessageSet;
     }
     return Orig(pMessageSet, pLabel);
@@ -125,8 +125,6 @@ HOOK_DEFINE_TRAMPOLINE(EuiMessageSetTryFindMessage) {
   static eui::MessageString Callback(eui::MessageSet *pMessageSet,
                                      char const *pLabel) {
     if (s_pSourceMessageSet && pMessageSet == s_pSourceMessageSet) {
-      pMessageSet = s_pSourceMessageSet;
-    } else if (s_pDestinationMessageSet && pMessageSet == s_pDestinationMessageSet) {
       pMessageSet = s_pDestinationMessageSet;
     }
     return Orig(pMessageSet, pLabel);
