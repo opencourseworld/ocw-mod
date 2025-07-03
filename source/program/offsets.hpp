@@ -33,8 +33,44 @@ namespace exl::reloc {
         { util::ModuleIndex::Main,
           0xE7F130,
           "_ZN4Cstm9UIMgrCstm11initMessageEPN2Lp2UI10MessageMgrE"
+        },
+        { util::ModuleIndex::Main,
+          0x485190,
+          "_ZN3eui12SharcArchive10initializeEPN4sead4HeapEPvj"
+        },
+        { util::ModuleIndex::Main,
+          0x262BB0,
+          "_ZnamPN4sead4HeapEiRKSt9nothrow_t"
+        },
+        { util::ModuleIndex::Main,
+          0x482970,
+          "_ZN3eui10MessageSetC1Ev"
+        },
+        { util::ModuleIndex::Main,
+          0x1CB4300,
+          "_ZN4sead17ArchiveFileDeviceC1EPNS_10ArchiveResE"
+        },
+        { util::ModuleIndex::Main,
+          0x485330,
+          "_ZNK3eui12SharcArchive15startFileReaderEPNS0_10FileReaderE"
+        },
+        { util::ModuleIndex::Main,
+          0x4853F0,
+          "_ZN3eui12SharcArchive10FileReader8readNextEv"
+        },
+        { util::ModuleIndex::Main,
+          0x2A99C0,
+          "_ZN4sead14MessageSetBase10initializeEPvPNS_4HeapE"
+        },
+        { util::ModuleIndex::Main,
+          0x485390,
+          "_ZN3eui12SharcArchive10FileReaderD1Ev"
+        },
+        { util::ModuleIndex::Main,
+          0x758480,
+          "_ZN2Lp2UI10MessageMgr20loadResMgrStaticHeapERKN4sead14SafeStringBaseIcEEb"
         }
-    >,
+>,
 
     UserTableType<VersionType::V3_0_2,
     //    Module offset is relative to.     Offset within module.       Symbol name.
