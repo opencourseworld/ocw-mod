@@ -15,19 +15,20 @@ namespace exl::util {
 
     namespace impl {
         ALWAYS_INLINE UserVersion DetermineUserVersion() {
-            /* 
-                Implement a method of determining your application version here if you want to take advantage of this feature.
-                An example may be apply Murmur3 over the .text and .rodata of the main executable or calling nn::oe::GetDisplayVersion.
-                The former would have complications if other mods are in effect, and the latter may have issues with people doing safe downgrades on console.
-            */
-            nn::oe::DisplayVersion displayVersion;
-            nn::oe::GetDisplayVersion(&displayVersion);
+            return UserVersion::V3_0_2;
+            // /* 
+            //     Implement a method of determining your application version here if you want to take advantage of this feature.
+            //     An example may be apply Murmur3 over the .text and .rodata of the main executable or calling nn::oe::GetDisplayVersion.
+            //     The former would have complications if other mods are in effect, and the latter may have issues with people doing safe downgrades on console.
+            // */
+            // nn::oe::DisplayVersion displayVersion;
+            // nn::oe::GetDisplayVersion(&displayVersion);
 
-            if (strncmp(displayVersion.name, "3.0.2", 6) == 0) {
-                return UserVersion::V3_0_2;
-            } else {
-                return UserVersion::DEFAULT;
-            }
+            // if (strncmp(displayVersion.name, "3.0.2", 6) == 0) {
+            //     return UserVersion::V3_0_2;
+            // } else {
+            //     return UserVersion::DEFAULT;
+            // }
         }
     }
 }

@@ -1,5 +1,12 @@
+// scuffed cpp include
+#include <prim/seadSafeString.h>
+#include <prim/seadSafeString.cpp>
+
 #include <filedevice/seadArchiveFileDevice.h>
 #include <resource/seadSharcArchiveRes.h>
+
+
+// vim: ts=2 sts=2 sw=2
 
 struct LMSMessage;
 

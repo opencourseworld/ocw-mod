@@ -10,7 +10,7 @@ NPDM_JSON_PATH := $(MISC_PATH)/npdm-json
 include $(PWD)/config.mk
 
 # Define common variables.
-NAME := $(shell basename $(PWD))
+NAME := $(PROJECT_NAME)
 DEPLOY := $(PWD)/deploy
 SD_OUT := atmosphere/contents/$(PROGRAM_ID)/exefs
 OUT := $(DEPLOY)/$(SD_OUT)
@@ -19,7 +19,8 @@ OUT := $(DEPLOY)/$(SD_OUT)
 # Set load kind specific variables.
 ifeq ($(LOAD_KIND), Module)
     LOAD_KIND_ENUM := 2
-    BINARY_NAME := subsdk9 # TODO: support subsdkX?
+    # TODO: support subsdkX?
+    BINARY_NAME := subsdk9
     SPECS_NAME := module.specs
     MK_NAME := module.mk
 else ifeq ($(LOAD_KIND), AsRtld)

@@ -1,7 +1,10 @@
 services:
   build:
     container_name: build
-    image: devkitpro/devkita64
+    build:
+      dockerfile: build.dockerfile
+    environment:
+      - PROJECT_NAME=01009b90006dc000-exlaunch
     command:
       - ./exlaunch.sh
       - build

@@ -80,15 +80,51 @@ namespace exl::reloc {
         },
         { util::ModuleIndex::Main,
           0x4829A0,
-          "_ZNK3eui10MessageSet11findMessageEPKc"
+          "_ZN3eui10MessageSet11findMessageEPKc"
         },
         { util::ModuleIndex::Main,
           0x482A30,
-          "_ZNK3eui10MessageSet14tryFindMessageEPKc"
+          "_ZN3eui10MessageSet14tryFindMessageEPKc"
         },
         { util::ModuleIndex::Main,
           0xE7F140,
           "_ZN4Cstm9UIMgrCstm11initMessageEPN2Lp2UI10MessageMgrE"
+        },
+        { util::ModuleIndex::Main,
+          0x4851A0,
+          "_ZN3eui12SharcArchive10initializeEPN4sead4HeapEPvj"
+        },
+        { util::ModuleIndex::Main,
+          0x262BC0,
+          "_ZnamPN4sead4HeapEiRKSt9nothrow_t"
+        },
+        { util::ModuleIndex::Main,
+          0x482980,
+          "_ZN3eui10MessageSetC1Ev"
+        },
+        { util::ModuleIndex::Main,
+          0x1CB4310,
+          "_ZN4sead17ArchiveFileDeviceC1EPNS_10ArchiveResE"
+        },
+        { util::ModuleIndex::Main,
+          0x485340,
+          "_ZNK3eui12SharcArchive15startFileReaderEPNS0_10FileReaderE"
+        },
+        { util::ModuleIndex::Main,
+          0x485400,
+          "_ZN3eui12SharcArchive10FileReader8readNextEv"
+        },
+        { util::ModuleIndex::Main,
+          0x2A99D0,
+          "_ZN4sead14MessageSetBase10initializeEPvPNS_4HeapE"
+        },
+        { util::ModuleIndex::Main,
+          0x4853A0,
+          "_ZN3eui12SharcArchive10FileReaderD1Ev"
+        },
+        { util::ModuleIndex::Main,
+          0x758490,
+          "_ZN2Lp2UI10MessageMgr20loadResMgrStaticHeapERKN4sead14SafeStringBaseIcEEb"
         }
     >
 

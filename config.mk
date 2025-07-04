@@ -9,6 +9,8 @@ LOAD_KIND := Module
 # Program you're targetting. Used to determine where to deploy your files.
 PROGRAM_ID := 01009B90006DC000
 
+PROJECT_NAME := 01009B90006DC000-exlaunch
+
 # Optional path to copy the final ELF to, for convenience.
 ELF_EXTRACT :=
 
@@ -21,6 +23,11 @@ NPDM_JSON := qlaunch.json
 # Additional C/C++ flags to use.
 C_FLAGS := -I$(CURDIR)/vendor/opensead/include -Wall -Werror -O3 -DNNSDK
 CXX_FLAGS := -I$(CURDIR)/vendor/opensead/include -Wno-invalid-offsetof
+
+SCUFFED_FLAG := -I$(CURDIR)/vendor/opensead/modules/src
+
+C_FLAGS += $(SCUFFED_FLAG)
+CXX_FLAGS += $(SCUFFED_FLAG)
 
 # AsRtld settings
 #------------------------

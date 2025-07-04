@@ -21,7 +21,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - <Project name>.json
 #     - config.json
 #---------------------------------------------------------------------------------
-export TARGET		:=	$(notdir $(CURDIR))
+export TARGET := $(PROJECT_NAME)
 BUILD		:=	build
 ROOT_SOURCE	:=	$(TOPDIR)/source
 MODULES		:=	$(shell find $(ROOT_SOURCE) -mindepth 1 -maxdepth 1 -type d)
