@@ -5,6 +5,7 @@
 #include <filedevice/seadArchiveFileDevice.h>
 #include <resource/seadSharcArchiveRes.h>
 
+#define UILOG(s) svcOutputDebugString(s, strlen(s))
 
 // vim: ts=2 sts=2 sw=2
 

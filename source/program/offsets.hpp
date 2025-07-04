@@ -87,7 +87,7 @@ namespace exl::reloc {
           "_ZN3eui10MessageSet14tryFindMessageEPKc"
         },
         { util::ModuleIndex::Main,
-          0xE7F140,
+          0xE7F130,
           "_ZN4Cstm9UIMgrCstm11initMessageEPN2Lp2UI10MessageMgrE"
         },
         { util::ModuleIndex::Main,
@@ -103,7 +103,7 @@ namespace exl::reloc {
           "_ZN3eui10MessageSetC1Ev"
         },
         { util::ModuleIndex::Main,
-          0x1CB4310,
+          0x1CB42C0,
           "_ZN4sead17ArchiveFileDeviceC1EPNS_10ArchiveResE"
         },
         { util::ModuleIndex::Main,
@@ -119,7 +119,7 @@ namespace exl::reloc {
           "_ZN4sead14MessageSetBase10initializeEPvPNS_4HeapE"
         },
         { util::ModuleIndex::Main,
-          0x4853A0,
+          0x485360,
           "_ZN3eui12SharcArchive10FileReaderD1Ev"
         },
         { util::ModuleIndex::Main,
