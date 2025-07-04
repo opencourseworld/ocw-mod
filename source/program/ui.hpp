@@ -70,8 +70,12 @@ struct MessageMgr {
 
 } // namespace eui
 
-static eui::MessageSet *s_pSourceMessageSet = nullptr;
-static eui::MessageSet *s_pDestinationMessageSet = nullptr;
+struct UILookup {
+  const char* label;
+  eui::MessageSet* msbt;
+};
+
+#include "ui.gen.hpp"
 
 HOOK_DEFINE_REPLACE(EuiMessageMgrArchiveLoad) {
   static void Callback(eui::MessageMgr::Archive *pArchive, sead::Heap *pHeap,
@@ -87,13 +91,17 @@ HOOK_DEFINE_REPLACE(EuiMessageMgrArchiveLoad) {
     while (fileReader.readNext()) {
       if (fileReader.m_DirectoryEntry.name.include(".msbt")) {
         auto &messageSet = pArchive->m_MessageSets[fileReader.m_Index];
-        messageSet.initialize(const_cast<void *>(fileReader.m_ArchiveFileDevice.mArchive->getFileFast(
-            fileReader.m_Index, nullptr)), pHeap);
-        if (fileReader.m_DirectoryEntry.name == "Cmn_TagWindow_00.msbt") {
-          s_pSourceMessageSet = &messageSet;
-        } else if (fileReader.m_DirectoryEntry.name == "OpenCourseWorld_TagWindow_00.msbt") {
-          s_pDestinationMessageSet = &messageSet;
-        }
+        messageSet.initialize(
+          const_cast<void *>(
+            fileReader.m_ArchiveFileDevice.mArchive->getFileFast(
+              fileReader.m_Index, nullptr
+            )
+          ),
+          pHeap
+        );
+
+        // from tags.gen.hpp
+        TryDetectMessageSet(fileReader.m_DirectoryEntry.name, &messageSet);
       }
     }
   }
@@ -122,20 +130,26 @@ struct UIMgrCstm {
 HOOK_DEFINE_TRAMPOLINE(EuiMessageSetFindMessage) {
   static eui::MessageString Callback(eui::MessageSet *pMessageSet,
                                      char const *pLabel) {
-    if (s_pSourceMessageSet && pMessageSet == s_pSourceMessageSet) {
-      pMessageSet = s_pDestinationMessageSet;
-    }
-    return Orig(pMessageSet, pLabel);
+    UILookup lookup;
+    lookup.label = pLabel;
+    lookup.msbt = pMessageSet;
+
+    // TryOverride is defined in codegen.py
+    UILookup replacement = TryOverride(lookup);
+    return Orig(replacement.msbt, replacement.label);
   }
 };
 
 HOOK_DEFINE_TRAMPOLINE(EuiMessageSetTryFindMessage) {
   static eui::MessageString Callback(eui::MessageSet *pMessageSet,
                                      char const *pLabel) {
-    if (s_pSourceMessageSet && pMessageSet == s_pSourceMessageSet) {
-      pMessageSet = s_pDestinationMessageSet;
-    }
-    return Orig(pMessageSet, pLabel);
+    UILookup lookup;
+    lookup.label = pLabel;
+    lookup.msbt = pMessageSet;
+
+    // TryOverride is defined in codegen.py
+    UILookup replacement = TryOverride(lookup);
+    return Orig(replacement.msbt, replacement.label);
   }
 };
 

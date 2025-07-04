@@ -1,0 +1,80 @@
+# this file maps the heirarchy of SZS -> MSBT -> Label to new OCW-specific tags,
+# which are found in locale yml files in `ui/`.
+
+LayoutMsg:
+  Cmn_PauseMenu_00: &thousands
+    1001: tag01
+    1002: tag02
+    1003: tag03
+    1004: tag04
+    1005: tag05
+    1006: tag06
+    1007: tag07
+    1008: tag08
+    1009: tag09
+    1010: tag10
+    1011: tag11
+    1012: tag12
+    1013: tag13
+    1014: tag14
+    1015: tag15
+  Lcl_CourseInfoWindow_00: *thousands
+  Nwk_CourseListGeneral_00: *thousands
+  Play_CourseClear_00: *thousands
+  Play_CourseIn_00: *thousands
+  Play_CourseRetire_00: *thousands
+
+  Cmn_TagWindow_00: &tagpickerui
+    L_TagRegister_00-L_TagBtn_00-T_Btn_00: tag01
+    L_TagRegister_00-L_TagBtn_01-T_Btn_00: tag02
+    L_TagRegister_00-L_TagBtn_02-T_Btn_00: tag03
+    L_TagRegister_00-L_TagBtn_03-T_Btn_00: tag04
+    L_TagRegister_00-L_TagBtn_04-T_Btn_00: tag05
+    L_TagRegister_00-L_TagBtn_05-T_Btn_00: tag06
+    L_TagRegister_00-L_TagBtn_06-T_Btn_00: tag07
+    L_TagRegister_00-L_TagBtn_07-T_Btn_00: tag08
+    L_TagRegister_00-L_TagBtn_08-T_Btn_00: tag09
+    L_TagRegister_00-L_TagBtn_09-T_Btn_00: tag10
+    L_TagRegister_00-L_TagBtn_10-T_Btn_00: tag11
+    L_TagRegister_00-L_TagBtn_11-T_Btn_00: tag12
+    L_TagRegister_00-L_TagBtn_12-T_Btn_00: tag13
+    L_TagRegister_00-L_TagBtn_13-T_Btn_00: tag14
+    L_TagRegister_00-L_TagBtn_14-T_Btn_00: tag15
+  Nwk_CourseListWindow_00:
+    <<: *thousands
+    <<: *tagpickerui
+
+  Nwk_SortWindow_00:
+    L_TagBtn_00-T_Btn_00: tag01
+    L_TagBtn_01-T_Btn_00: tag02
+    L_TagBtn_02-T_Btn_00: tag03
+    L_TagBtn_03-T_Btn_00: tag04
+    L_TagBtn_04-T_Btn_00: tag05
+    L_TagBtn_05-T_Btn_00: tag06
+    L_TagBtn_06-T_Btn_00: tag07
+    L_TagBtn_07-T_Btn_00: tag08
+    L_TagBtn_08-T_Btn_00: tag09
+    L_TagBtn_09-T_Btn_00: tag10
+    L_TagBtn_10-T_Btn_00: tag11
+    L_TagBtn_11-T_Btn_00: tag12
+    L_TagBtn_12-T_Btn_00: tag13
+    L_TagBtn_13-T_Btn_00: tag14
+    L_TagBtn_14-T_Btn_00: tag15
+ReferenceMsg:
+  CourseTag:
+    Empty:       tag00
+    Standart:    tag01
+    Mystery:     tag02
+    TimeAttack:  tag03
+    AutoScroll:  tag04
+    AutoMario:   tag05
+    OneShot:     tag06
+    BattleMode:  tag07
+    Gimmick:     tag08
+    Music:       tag09
+    Art:         tag10
+    Technic:     tag11
+    Shooting:    tag12
+    BossBattle:  tag13
+    SinglePlay:  tag14
+    Link:        tag15

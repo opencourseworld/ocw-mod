@@ -18,7 +18,6 @@ class SillyAdapter(pymsb.LMSAdapter):
     def parse_attributes(self, stream, root_offset, root_size):
         stream.seek(root_offset)
         out = { "attrs": stream.read(root_size) }
-        print(out)
         return out
 
     def write_attributes(self, stream, attributes):
@@ -28,6 +27,14 @@ class SillyAdapter(pymsb.LMSAdapter):
         return {}
 
     def use_fixed_buckets(self): return True
+
+    def read_tag(self, stream):
+        tag_group = stream.read_u16()
+        tag_index = stream.read_u16()
+        tag_size = stream.read_u16()
+        params = stream.read(tag_size)
+        params_repr = ",".join([str(c) for c in params])
+        return f'[{tag_group},{tag_index},{params_repr}]'
 
 def dump(argv):
     fname = argv[0]

@@ -11,11 +11,11 @@ execd() {
 
 mkdir -p "$OUTDIR/romfs/Message"
 
-for yml in ./misc/resources/*.yml; do
+for yml in ./misc/resources/ui/*.yml; do
   base="${yml##*/}"
   base="${base%%.yml}"
 
   execd ./misc/scripts/msbt.py pack \
-    -o "$OUTDIR/romfs/Message/$base.szs" \
-    OpenCourseWorld_TagWindow_00.msbt="$yml"
+    -o "$OUTDIR/romfs/Message/OpenCourseWorldMsg_$base.szs" \
+    OpenCourseWorldMsg.msbt="$yml"
 done

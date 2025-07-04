@@ -125,6 +125,7 @@ all: $(BUILD)
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
+	@$(SHELL) $(SCRIPTS_PATH)/pre-build.sh
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(MK_PATH)/common.mk
 	@$(SHELL) $(SCRIPTS_PATH)/post-build.sh
 
