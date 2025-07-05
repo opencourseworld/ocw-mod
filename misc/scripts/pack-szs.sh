@@ -17,5 +17,6 @@ for yml in ./misc/resources/ui/*.yml; do
 
   execd ./misc/scripts/msbt.py pack \
     -o "$OUTDIR/romfs/Message/OpenCourseWorldMsg_$base.szs" \
+    -d misc/resources/ui/USen.yml \
     OpenCourseWorldMsg.msbt="$yml"
 done

@@ -14,3 +14,45 @@ tag12: Precision
 tag13: Boss battle
 tag14: Troll
 tag15: Suffering
+report_comment: This comment will be reported to the OCW admins.
+report_course: |
+  This course will be reported to the OCW admins.
+
+  Note that we do not delete levels for glitches or unfair
+  mechanics. However, if you believe a course is legitimately
+  not possible to clear, we may prevent it from appearing in
+  Endless mode.
+
+  We will also delete courses for inappropriate content or
+  copying.
+report_username: This user will be reported to the OCW admins.
+course_world: OCW
+first_time_message_header: Important Notice from the OCW Admins
+first_time_message: |
+  Congratulations on setting up OCW!
+
+  Open Course World (OCW) is not affiliated with Nintendo.
+  We are a fan-run archive intended for levels that Nintendo
+  would otherwise take down.
+
+  By uploading a course, you agree to OCW's user agreement,
+  which can be found at https://opencourse.world/eula
+
+  Levels from Nintendo Switch Online are NOT available
+  on OCW, unless the creator of that level has explicitly
+  provided that level to us. If you would like to play a
+  level that is not on OCW, please contact the level creator.
+
+  Do not upload courses that you did not create to
+  Open Course World unless you have explicit permission from
+  the creator of that level. Violations of this rule will result
+  in a ban.
+
+  We expect you to be playing from a legally purchased copy
+  of Mario Maker 2, on your own hardware. If you are found
+  to be using a pirated copy, you will be banned.
+
+  OCW will not delete levels for glitches, but we ask that if
+  a level is not clearable, that you mark it as exempt from
+  endless mode via our website.
+version_text: 'ocw-mod:0.3       Ver.'

@@ -60,6 +60,20 @@ LayoutMsg:
     L_TagBtn_12-T_Btn_00: tag13
     L_TagBtn_13-T_Btn_00: tag14
     L_TagBtn_14-T_Btn_00: tag15
+  Nwk_ReportWindow_00:
+    AttentionComment: report_comment
+    AttentionCourse: report_course
+    AttentionUserName: report_username
+  Cmn_SeqWindow_00:
+    Msg_0105: first_time_message
+    Msg_0144: first_time_message
+    Msg_0168: first_time_message_header
+    Hader_0144: first_time_message_header
+  Play_Title_00:
+    L_NetworkBtn_00-T_Btn_00: course_world
+    T_Ver_00: version_text
+  Cmn_MainMenu_00:
+    L_NetworkBtn_00-T_Btn_00: course_world
 ReferenceMsg:
   CourseTag:
     Empty:       tag00
@@ -78,3 +92,6 @@ ReferenceMsg:
     BossBattle:  tag13
     SinglePlay:  tag14
     Link:        tag15
+  ModeName:
+    Mode_Network: course_world
+

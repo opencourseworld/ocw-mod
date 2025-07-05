@@ -44,7 +44,7 @@ def dump(argv):
     for m in sorted(msbt.messages, key=lambda x: x.label):
         print(f"{m.label}: {m.text}")
 
-def parse_msbt(infile):
+def parse_yml(infile, default={}):
     with open(infile) as f:
         text = f.read()
 
@@ -57,13 +57,18 @@ def parse_msbt(infile):
         m = msbt.new_message(k)
         m.text = v
 
+    for k, v in default.items():
+        if k in doc: continue
+        m = msbt.new_message(k)
+        m.text = v
+
     return msbt
 
-def pack_szs(outfile, elements={}):
+def pack_szs(outfile, elements={}, default={}):
     arc = SarcLib.SARC_Archive(endianness='<')
 
     for path, source in elements.items():
-        msbt = parse_msbt(source)
+        msbt = parse_yml(source, default)
         binary = msbt.makebin()
         file = SarcLib.File(path, binary)
         arc.addFile(file)
@@ -89,19 +94,23 @@ def convert(argv):
         elif arg[0] != '-':
             infile = arg
 
-    msbt = parse_msbt(infile)
+    msbt = parse_yml(infile)
 
     pymsb.msbt_write_file(msbt, outfile)
 
 def pack(argv):
     outfile = 'out.szs'
     elements = {}
+    default = {}
 
     while len(argv):
         arg = argv.pop(0)
 
         if arg == '-o' or arg == '--output':
             outfile = argv.pop(0)
+        if arg == '-d' or arg == '--default':
+            with open(argv.pop(0)) as f:
+                default = yaml.load(f.read(), Loader=yaml.Loader)
         else:
             try:
                 (path, infile) = arg.split('=')
@@ -109,7 +118,7 @@ def pack(argv):
             except ValueError:
                 infile = arg
 
-    pack_szs(outfile, elements)
+    pack_szs(outfile, elements, default)
 
 
 def main(argv):
