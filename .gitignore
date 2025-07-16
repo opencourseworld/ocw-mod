@@ -7,3 +7,4 @@ deploy/*
 *.nso
 *.npdm
 *.gen.hpp
+*.dump
