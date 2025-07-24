@@ -5,6 +5,7 @@ from sys import argv
 import ipdb
 import yaml
 import libyaz0
+import sys
 
 import SarcLib
 
@@ -34,7 +35,7 @@ class SillyAdapter(pymsb.LMSAdapter):
         tag_size = stream.read_u16()
         params = stream.read(tag_size)
         params_repr = ",".join([str(c) for c in params])
-        return f'[{tag_group},{tag_index},{params_repr}]'
+        return f'[{tag_group},{tag_index},{params_repr}{icon}]'
 
 def dump(argv):
     fname = argv[0]
@@ -42,7 +43,7 @@ def dump(argv):
     msbt = pymsb.msbt_from_file(SillyAdapter, fname)
 
     for m in sorted(msbt.messages, key=lambda x: x.label):
-        print(f"{m.label}: {m.text}")
+        print(f"{m.label}: {m.text.strip()}")
 
 def parse_yml(infile, default={}):
     with open(infile) as f:
@@ -133,10 +134,4 @@ def main(argv):
         return pack(argv)
 
 if __name__ == '__main__':
-    import sys
-    exit(main(sys.argv[:]))
-
-msbt = pymsb.msbt_from_file(SillyAdapter, argv[1])
-
-for message in msbt.messages:
-    print(f"{message.label}: {message.text}")
+    sys.exit(main(sys.argv[:]))

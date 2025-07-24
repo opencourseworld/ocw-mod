@@ -1,9 +1,13 @@
-# exlaunch
-A framework for injecting C/C++ code into Nintendo Switch applications/applet/sysmodules.
+# OpenCourseWorld client mod
 
-> [!NOTE]
-> This project is a work in progress. If you have issues, reach out to `shad0w0.` on Discord.
+A mod for Mario Maker 2 that allows connecting to OCW servers.
+Based on [exlaunch](https://github.com/shadowninja108/exlaunch) by shadowninja108.
 
-# Credit
-- Atmosphère: A great reference and guide.
-- oss-rtld: Included for (pending) interop with rtld in applications (License [here](https://github.com/shadowninja108/exlaunch/blob/main/source/lib/reloc/rtld/LICENSE.txt)).
+# Building
+The best way to build is with Docker. This is cross-compilation for the Switch, and we need some very specific libraries and python stuff set up. Simply `./build.sh` or:
+
+```
+docker compose run --rm build make
+```
+
+This should result in a file `deploy/ocw-mod.zip`, which can be extracted to your SD card or virtual SD card to apply the mod.

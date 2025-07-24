@@ -1,0 +1,60 @@
+tag00: Aucun
+tag01: Traditionnel
+tag02: Puzzle
+tag03: Speedrun
+tag04: Kaizo
+tag05: Automatique
+tag06: Un défi
+tag07: Multijoueur
+tag08: Thématique
+tag09: Musique
+tag10: Art
+tag11: Démonstration technique
+tag12: Précision
+tag13: Combat de boss
+tag14: Troll
+tag15: Souffrance
+no_one_likes_a_troll: |
+  N’oublie jamais que l’objectif est de faire rire le joueur, et jamais de le frustrer.
+  --Guide du troll de Defender
+report_comment: Ce commentaire sera signalé aux administrateurs d'OCW.
+report_course: |
+  Ce niveau sera signalé aux administrateurs d'OCW.
+
+  Veuillez noter que nous ne supprimons pas les niveaux pour
+  cause de glitches ou de mécaniques injustes. Toutefois,
+  si vous pensez qu’un niveau est réellement impossible à
+  terminer, faites-le-nous savoir et il pourrait être retiré
+  du mode Endless.
+report_username: Cet utilisateur sera signalé aux administrateurs d’OCW.
+first_time_message_header: Message important des administrateurs d’OCW
+first_time_message: |
+  Vous avez mis en place OCW, félicitations!
+
+  Open Course World (OCW) n’est pas affilié à Nintendo. Il
+  s’agit d’une archive gérée par des fans, destinée à préserver
+  des niveaux que Nintendo retirerait autrement.
+
+  Pour accéder aux serveurs d'OCW, vous devez posséder une
+  copie officielle de Super Mario Maker 2 obtenue auprès de
+  Nintendo. Toute tentative d'accéder aux serveurs d'OCW
+  sans licence valide entraînera un bannissement définitif.
+
+  En téléversant un niveau, vous acceptez les conditions
+  d’utilisation d’OCW, disponibles à l’adresse suivante
+  https://opencourse.world/eula
+
+  Les niveaux présents sur le Nintendo Switch Online ne
+  sont PAS disponibles sur OCW, sauf si leur créateur nous
+  les a explicitement transmis. Pour jouer à un niveau
+  non disponible sur OCW, merci de contacter son créateur.
+
+  Il est interdit de téléverser sur Open Course World des
+  niveaux créés par d'autres personnes sans leur permission
+  explicite. La transgression de cette règle entraînera un
+  bannissement permanent.
+
+  OCW ne supprimera pas les niveaux pour cause de glitches;
+  cependant si un niveau s'avère réellement impossible à
+  terminer, merci de le marquer comme exempt du mode défi
+  infini sur notre site.

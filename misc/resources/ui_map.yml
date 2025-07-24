@@ -2,7 +2,7 @@
 # which are found in locale yml files in `ui/`.
 
 LayoutMsg:
-  Cmn_PauseMenu_00: &thousands
+  Lcl_CourseInfoWindow_00: &thousands
     1001: tag01
     1002: tag02
     1003: tag03
@@ -18,7 +18,11 @@ LayoutMsg:
     1013: tag13
     1014: tag14
     1015: tag15
-  Lcl_CourseInfoWindow_00: *thousands
+  Cmn_PauseMenu_00:
+    <<: *thousands
+    T_Mode_MyWorld_Net: course_world
+    T_Mode_Network: course_world
+
   Nwk_CourseListGeneral_00: *thousands
   Play_CourseClear_00: *thousands
   Play_CourseIn_00: *thousands
@@ -94,4 +98,7 @@ ReferenceMsg:
     Link:        tag15
   ModeName:
     Mode_Network: course_world
+CommonMsg:
+  LsnTechnique_019:
+    Technique_019_012: no_one_likes_a_troll
 

@@ -22,9 +22,6 @@ report_course: |
   mechanics. However, if you believe a course is legitimately
   not possible to clear, we may prevent it from appearing in
   Endless mode.
-
-  We will also delete courses for inappropriate content or
-  copying.
 report_username: This user will be reported to the OCW admins.
 course_world: OCW
 first_time_message_header: Important Notice from the OCW Admins
@@ -55,4 +52,11 @@ first_time_message: |
   OCW will not delete levels for glitches, but we ask that if
   a level is not clearable, that you mark it as exempt from
   endless mode via our website.
+
+no_one_likes_a_troll: |
+  When trolling, always remember that your goal is to
+  make the player laugh and never to frustrate them.
+  -- Defender's Troll Guide
+
+# using spaces to move the mod text out of the grey box
 version_text: 'ocw-mod:0.3       Ver.'

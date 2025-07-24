@@ -4,7 +4,7 @@
 uname -a
 execd() {
   echo "$@" >&2
-  "$@"
+  "$@" || exit $?
 }
 
 [[ -z "$OUTDIR" ]] && OUTDIR=./tmp
