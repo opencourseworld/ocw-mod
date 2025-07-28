@@ -15,8 +15,8 @@ tag13: Combat de boss
 tag14: Troll
 tag15: Souffrance
 no_one_likes_a_troll: |
-  Rappelle-toi toujours que ton objectif est de faire rire le joueur, jamais de le frustrer.
-  --Guide du troll selon Defender
+  Rappelle-toi toujours que ton objectif est de faire rire le joueur,
+  jamais de le frustrer. --Guide du troll selon Defender
 report_comment: Ce commentaire fera l’objet d’un signalement auprès des administrateurs d’OCW.
 report_course: |
   Ce niveau sera signalé aux administrateurs d'OCW.
@@ -56,6 +56,5 @@ first_time_message: |
   entraînera un bannissement permanent.
 
   OCW ne supprime pas les niveaux pour cause de glitches,
-  mais si un niveau est véritablement injouable, merci
-  de le marquer comme exempt du mode défi infini sur notre
-  site.
+  mais si un niveau est véritablement injouable, merci de le
+  marquer comme exempt du mode défi infini sur notre site.
