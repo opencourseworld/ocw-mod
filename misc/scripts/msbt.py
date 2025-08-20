@@ -35,7 +35,7 @@ class SillyAdapter(pymsb.LMSAdapter):
         tag_size = stream.read_u16()
         params = stream.read(tag_size)
         params_repr = ",".join([str(c) for c in params])
-        return f'[{tag_group},{tag_index},{params_repr}{icon}]'
+        return f'[{tag_group},{tag_index},{params_repr}]'
 
 def dump(argv):
     fname = argv[0]
