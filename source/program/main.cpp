@@ -64,6 +64,16 @@ void HeaderSnprintf(char* buffer, size_t bufferLength, const char* format, const
     );
 }
 
+struct struct_a1;
+
+struct struct_a2;
+
+HOOK_DEFINE_REPLACE(StubCorruptCourseCheck) {
+  static bool Callback(struct_a1 *a1, struct_a2 *a2, bool a3) {
+    return false;
+  }
+};
+
 extern "C" void exl_main(void* x0, void* x1) {
     /* Setup hooking environment. */
     exl::hook::Initialize();
@@ -178,14 +188,12 @@ extern "C" void exl_main(void* x0, void* x1) {
     p.WriteInst(inst::Movz(reg::W0, 1));
     p.WriteInst(inst::Ret());
 
-    /* Disable corrupt course check. */
+    /* Stub corrupt course check. */
     if (versionIndex == 1) {
-      p.Seek(0x17bb980); // 3.0.2
+      StubCorruptCourseCheck.InstallAtOffset(0xFCAAD0); // 3.0.2
     } else if (versionIndex == 2) {
-      p.Seek(0x17BB9C0); // 3.0.3
+      StubCorruptCourseCheck.InstallAtOffset(0xFCAB10); // 3.0.3
     }
-    p.WriteInst(inst::Movz(reg::W0, 1));
-    p.WriteInst(inst::Ret());
 
     /* Pretend EnsureNetworkServiceAccountIdTokenCacheAsync succeeds. */
     if (versionIndex == 1) {
@@ -234,3 +242,4 @@ extern "C" NORETURN void exl_exception_entry() {
     /* Note: this is only applicable in the context of applets/sysmodules. */
     EXL_ABORT("Default exception handler called!");
 }
+
