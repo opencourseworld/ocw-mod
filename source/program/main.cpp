@@ -190,9 +190,9 @@ extern "C" void exl_main(void* x0, void* x1) {
 
     /* Stub corrupt course check. */
     if (versionIndex == 1) {
-      StubCorruptCourseCheck.InstallAtOffset(0xFCAAD0); // 3.0.2
+        StubCorruptCourseCheck::InstallAtOffset(0xFCAAD0); // 3.0.2
     } else if (versionIndex == 2) {
-      StubCorruptCourseCheck.InstallAtOffset(0xFCAB10); // 3.0.3
+        StubCorruptCourseCheck::InstallAtOffset(0xFCAB10); // 3.0.3
     }
 
     /* Pretend EnsureNetworkServiceAccountIdTokenCacheAsync succeeds. */
