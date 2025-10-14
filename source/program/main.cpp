@@ -233,6 +233,16 @@ extern "C" void exl_main(void* x0, void* x1) {
     }
     p.WriteInst(inst::Movz(reg::W0, 0));
 
+    // skip the intro sequence
+    if (versionIndex == 1) {
+      p.Seek(0x017E42EC);
+    }
+    else if (versionIndex == 2) {
+      p.Seek(0x017E432C);
+    }
+    p.WriteInst(inst::Movz(reg::W1, 4));
+
+
     install_ui();
 
     LOG("OCW: finished");
