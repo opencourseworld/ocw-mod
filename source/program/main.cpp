@@ -85,7 +85,7 @@ extern "C" void exl_main(void* x0, void* x1) {
     u32 versionIndex = helpers::InitializeGameVersion();
     LOG("OCW: mod version: %s", MOD_VERSION);
     LOG("OCW: game version: %s", helpers::GetGameVersion());
-    if (versionIndex == 0xffff'ffff)
+    if (versionIndex != 1 && versionIndex != 2)
     {
       EXL_ABORT("OCW: Incompatible game version!");
       return;
